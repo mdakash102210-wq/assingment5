@@ -1,7 +1,6 @@
 let btn = (id) => {
   let bt = document.querySelectorAll(".btn");
   let curentbtn = document.getElementById(id);
-  //   bt.classList.remove("btn-primary");
   bt.forEach((b) => {
     b.classList.remove("btn-primary");
   });
@@ -9,13 +8,14 @@ let btn = (id) => {
   curentbtn.classList.remove("btn-outline");
 };
 
+let allIssues = [];
+
 // src start
 let enterBtn = document.querySelector(".enterbtn");
 enterBtn.addEventListener("click", function () {
   let inputsearch = document.querySelector(".input-search").value;
   inputSearchUrl(inputsearch);
 });
-
 let inputSearchUrl = (value) => {
   let url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${value}`;
   fetch(url)
@@ -33,6 +33,7 @@ let issuCountApiget = () => {
   fetch(url)
     .then((res) => res.json())
     .then((datas) => {
+      allIssues = datas.data;
       issuDisplayfun(datas.data);
       maincontainerDisplay(datas.data);
     });
@@ -53,17 +54,12 @@ let bugs = (arra) => {
   return element.join("");
 };
 
-// main work start
 let maincontainerDisplay = (items) => {
-  //   console.log(items);
   let mains = document.querySelector(".mains");
   mains.innerHTML = "";
-
   items.forEach((item) => {
-    // console.log(item.id);
     let div = document.createElement("div");
     div.setAttribute("onclick", `modalFunction(${item.id})`);
-
     div.setAttribute(
       "class",
       `children shadow space-y-3 p-5 rounded-xl border-t-4  ${item.priority === "low" ? "border-pink-300" : item.priority === "medium" ? "border-yellow-500" : item.priority === "high" ? "border-green-500" : "border-gray-300"} `,
@@ -83,12 +79,8 @@ let maincontainerDisplay = (items) => {
     `;
     mains.append(div);
     loding(false);
-    // console.log(item.createdAt);
   });
-  //   div.setAttribute("onclick", modalFunction(item.id));
 };
-
-// loding Function
 
 function loding(boliyan) {
   let mains = document.querySelector(".mains");
@@ -117,12 +109,10 @@ let modalShowFunction = (item) => {
   <h1 class="font-bold text-[24px]">${item.title}</h1>
   <div class="flex gap-3 items-center"><button class="btn btn-success rounded-2xl">${item.status}</button>
   <h1>${item.author}</h1>
-  
   </div>
                         <div class = "my-3 flex gap-3">
                             ${bugs(item.labels)}
                         </div>
-
                         <p class="text-[#64748B]">${item.description}</p>
                         <div class="grid grid-cols-2 bg-[#F8FAFC] rounded-xl p-4">
                             <div class="start">
@@ -138,3 +128,35 @@ let modalShowFunction = (item) => {
   modalSection.append(div);
   document.querySelector("#my_modal_5").showModal();
 };
+
+let filterByStatus = (status) => {
+  if (status === "all") {
+    maincontainerDisplay(allIssues);
+    issuDisplayfun(allIssues);
+  } else {
+    let filtered = allIssues.filter(
+      (item) => item.status.toLowerCase() === status.toLowerCase(),
+    );
+    maincontainerDisplay(filtered);
+    issuDisplayfun(filtered);
+  }
+};
+
+let allBtn = document.getElementById("allBtn");
+let openBtn = document.getElementById("openBtn");
+let closedBtn = document.getElementById("closedBtn");
+
+allBtn.addEventListener("click", () => {
+  btn("allBtn");
+  filterByStatus("all");
+});
+
+openBtn.addEventListener("click", () => {
+  btn("openBtn");
+  filterByStatus("open");
+});
+
+closedBtn.addEventListener("click", () => {
+  btn("closedBtn");
+  filterByStatus("closed");
+});
