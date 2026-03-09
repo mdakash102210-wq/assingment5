@@ -29,9 +29,9 @@
 
             </div>
             <div class="end flex justify-center gap-3 relative">
-                <input type="text" placeholder="       Search issues..." class="input outline-0" />
+                <input type="text" placeholder="       Search issues..." class="input input-search outline-0" />
                 <i class="fa-solid fa-magnifying-glass absolute top-[50%] -translate-y-[50%] sm:left-3 left-10"></i>
-                <button class="btn btn-primary">+ New Issue</button>
+                <button class="btn btn-primary enterbtn">+ New Issue</button>
             </div>
         </nav>
     </header>
@@ -63,24 +63,32 @@
 
 
         <section class="mains p-6 bg-white mt-3 grid grid-cols-1 sm:grid-cols-3 gap-5 ">
-            <div class="children shadow space-y-3 p-5 rounded-xl border-t-4  border-green-500">
-                <div class="chi-img flex justify-between ">
-                    <img class="w-7 h-7" src="assets/Open-Status.png" alt="" srcset="">
-                    <button class="bg-[#FEECEC] text-[#EF4444] p-1 px-3 rounded-xl">Secondary</button>
-                </div>
-                <h1 class="font-semibold">Fix navigation menu on mobile devices</h1>
-                <p class="text-[14px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...
-                </p>
-                <div class="btns flex gap-2">
-                    <button class="bg-[#FEECEC] text-[#EF4444] p-1 px-3 rounded-xl">Secondary</button>
-                    <button class="bg-[#FDE68A] text-[#D97706] p-1 px-3 rounded-xl">Secondary</button>
-                </div>
-                <div class="hr h-0.5 bg-[#64748B]"></div>
-                <p class="text-[14px] text-[#64748B]">#1 by john_doe</p>
-                <p class="text-[14px] text-[#64748B]">1/15/2024</p>
-            </div>
 
         </section>
+
+        <section class=" loadingSection p-6 bg-white mt-3 flex justify-center items-center hidden">
+            <span class="loading loading-spinner text-accent "></span>
+        </section>
+
+        <section class="modals flex justify-center items-center ">
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+
+                <div class="modal-box">
+                    <div class="modalSection">
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn btn-primary">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </section>
+
     </main>
 
     <script src="script/script.js"></script>
