@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind and daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- css cmd -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font cmd -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- favicom cmd -->
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- title akhane -->
+    <title>Github || Home</title>
+
+</head>
+
+<body class="bg-[#F8FAFC] h-full">
+    <header class=" max-w-11/12 mx-auto py-4">
+        <nav class="flex flex-col sm:flex-row gap-5 justify-between">
+            <div class="start flex  items-center gap-4">
+                <img class="w-10" src="assets/github-logo.png" alt="">
+                <p class="font-semibold text-2xl">GitHub Issues Tracker</p>
+
+            </div>
+            <div class="end flex justify-center gap-3 relative">
+                <input type="text" placeholder="       Search issues..." class="input outline-0" />
+                <i class="fa-solid fa-magnifying-glass absolute top-[50%] -translate-y-[50%] sm:left-3 left-10"></i>
+                <button class="btn btn-primary">+ New Issue</button>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-10/12 mx-auto ">
+        <section class=" button-section p-6 bg-white shadow rounded-xl space-x-4 mt-12">
+            <button id="btn01" onclick="btn(`btn01`)" class="btn btn-primary">All</button>
+            <button id="btn02" onclick="btn(`btn02`)" class="btn btn-outline">Open</button>
+            <button id="btn03" onclick="btn(`btn03`)" class="btn btn-outline">Closed</button>
+        </section>
+        <section class="issuesSection p-6 bg-white shadow rounded-xl mt-5 flex justify-between">
+            <div class="start flex items-center gap-3">
+                <div class="imgsection"><img src="assets/Aperture.png" alt="" srcset=""></div>
+                <div class="textsection">
+                    <h1 class="text-[20px] font-semibold"><span class="issucrounts">720</span> Issues</h1>
+                    <p class="text-[#64748B] ">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="end flex gap-5">
+                <div class="open flex gap-3 items-center">
+                    <div class="w-4 h-4 bg-green-500 rounded-[50%]"></div>
+                    <h1 class="font-medium">Open</h1>
+                </div>
+                <div class="close flex gap-3 items-center">
+                    <div class="w-4 h-4 bg-[#A855F7] rounded-[50%]"></div>
+                    <h1 class="font-medium">Closed</h1>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mains p-6 bg-white mt-3 grid grid-cols-1 sm:grid-cols-3 gap-5 ">
+            <div class="children shadow space-y-3 p-5 rounded-xl border-t-4  border-green-500">
+                <div class="chi-img flex justify-between ">
+                    <img class="w-7 h-7" src="assets/Open-Status.png" alt="" srcset="">
+                    <button class="bg-[#FEECEC] text-[#EF4444] p-1 px-3 rounded-xl">Secondary</button>
+                </div>
+                <h1 class="font-semibold">Fix navigation menu on mobile devices</h1>
+                <p class="text-[14px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...
+                </p>
+                <div class="btns flex gap-2">
+                    <button class="bg-[#FEECEC] text-[#EF4444] p-1 px-3 rounded-xl">Secondary</button>
+                    <button class="bg-[#FDE68A] text-[#D97706] p-1 px-3 rounded-xl">Secondary</button>
+                </div>
+                <div class="hr h-0.5 bg-[#64748B]"></div>
+                <p class="text-[14px] text-[#64748B]">#1 by john_doe</p>
+                <p class="text-[14px] text-[#64748B]">1/15/2024</p>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>

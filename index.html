@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind and daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- css cmd -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font cmd -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- favicom cmd -->
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- title akhane -->
+    <title>Github || Login</title>
+
+</head>
+
+<body class="bg-[#F8FAFC]  flex  items-center">
+    <header class="min-w-[450px]   mx-auto bg-white shadow rounded-xl p-9 my-5">
+        <nav class="text-center">
+            <img class="m-auto mb-6" src="assets/github-logo.png" alt="">
+            <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </nav>
+        <div class="div space-y-2">
+            <label class="font-medium">Username</label> <br>
+            <input type="text" class="input usernameInput mt-2 w-full outline-0" placeholder="Enter Username" /><br>
+            <p class="text-[#4A00FF] text-[14px]">Default: admin</p>
+
+            <label class="font-medium mb-2">Password</label><br>
+            <input type="password" class="input inputpassword mt-2 w-full outline-0" placeholder="Enter Password" /><br>
+            <p class="text-[#4A00FF] text-[14px]">Default: admin123</p>
+            <button class="btn w-full btn-primary mt-4">Sign In</button><br>
+
+            <div class="or my-5 relative">
+                <div class="bg-[#E4E4E7] h-0.5 "></div>
+                <h1 class=" font-semibold absolute -top-3 left-[50%]">OR</h1>
+
+            </div>
+            <div class="demo">
+                <p class="text-[#64748B] text-center">Demo Credentials:</p>
+                <div class="bg-[#F8FAFC] p-6 rounded-xl mt-4">
+                    <h1 class="text-center font-bold">Username: <span class="font-normal">admin</span></h1>
+                    <h1 class="text-center font-bold">Password: <span class="font-normal">admin123</span></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="script/login.js"></script>
+</body>
+
+</html>
